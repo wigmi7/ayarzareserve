@@ -1,0 +1,105 @@
+.impact-section {
+  padding: 8rem 2rem;
+  background-color: var(--text-primary);
+  color: var(--text-dark);
+}
+
+.impact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.impact-desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #555;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.impact-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 2rem;
+}
+
+.metric-value {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: var(--accent-volcano);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.impact-testimonial {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.impact-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+}
+
+.impact-quote-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  padding: 2.5rem;
+  border-radius: 4px;
+}
+
+.impact-quote {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.impact-author {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .impact-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .impact-metrics {
+    grid-template-columns: 1fr;
+  }
+  .impact-quote-box {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 1.5rem;
+  }
+  .metric-value {
+    font-size: 2.5rem;
+  }
+}

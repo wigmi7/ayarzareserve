@@ -1,0 +1,159 @@
+.coffee-db-page {
+  padding: 10rem 2rem 6rem;
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  width: 20px;
+  height: 20px;
+}
+
+.lot-input {
+  width: 100%;
+  padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.lot-input:focus {
+  border-color: var(--accent-gold);
+}
+
+.search-btn {
+  border-radius: 4px;
+  padding: 0 2rem;
+}
+
+.db-results-container {
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
+.no-result {
+  text-align: center;
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(140, 59, 45, 0.3);
+}
+
+.result-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.result-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.score-badge {
+  text-align: right;
+}
+
+.score-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.score-text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 2rem;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.result-value {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.notes-highlight {
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
+  }
+  .search-btn {
+    padding: 1.25rem;
+  }
+  .result-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .score-badge {
+    text-align: left;
+  }
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+  .result-card {
+    padding: 2rem;
+  }
+}

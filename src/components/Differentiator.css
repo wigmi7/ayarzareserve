@@ -1,0 +1,60 @@
+.diff-section {
+  padding: 4rem 2rem 8rem;
+  background-color: var(--bg-primary);
+}
+
+.diff-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 5rem 4rem;
+  text-align: center;
+  background-color: var(--bg-clinic);
+}
+
+.diff-content h2 {
+  margin-bottom: 4rem;
+  color: var(--text-dark) !important;
+}
+
+.diff-table-wrapper {
+  overflow-x: auto;
+}
+
+.diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.diff-table th, .diff-table td {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.diff-table th {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.diff-highlight {
+  color: var(--accent-volcano) !important;
+}
+
+.diff-us {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.diff-others {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .diff-container {
+    padding: 3rem 1.5rem;
+  }
+}
