@@ -1,53 +1,53 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 import './CoffeeDatabase.css';
 
-// Base de datos Mock de lotes de café
-const coffeeDatabase = [
-  {
-    lote: "AVR-001",
-    variedad: "Bourbon Rojo",
-    altitud: "1,950m",
-    proceso: "Lavado Clásico",
-    notas: "Cacao oscuro, Almendra tostada, Acidez málica sutil",
-    puntos: "86.5",
-    cosecha: "Enero 2026",
-    finca: "Finca El Volcán Norte"
-  },
-  {
-    lote: "AVR-002",
-    variedad: "Caturra",
-    altitud: "1,800m",
-    proceso: "Honey Amarillo",
-    notas: "Miel de abeja, Frutos rojos, Cuerpo sedoso",
-    puntos: "87.0",
-    cosecha: "Febrero 2026",
-    finca: "Finca Las Nubes"
-  },
-  {
-    lote: "AVR-003",
-    variedad: "Pacamara / Edición Limitada",
-    altitud: "2,050m",
-    proceso: "Natural",
-    notas: "Fresa madura, Vino tinto, Chocolate amargo",
-    puntos: "89.0",
-    cosecha: "Diciembre 2025",
-    finca: "Ladera Alta Ayarza"
-  }
-];
+interface CoffeeLot {
+  lote_code: string;
+  variedad: string;
+  altitud: string;
+  proceso: string;
+  notas: string;
+  puntos: number;
+  cosecha: string;
+  finca: string;
+}
 
 export default function CoffeeDatabase() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [result, setResult] = useState<typeof coffeeDatabase[0] | null | undefined>(undefined);
+  const [result, setResult] = useState<CoffeeLot | null | undefined>(undefined);
+  const [loading, setLoading] = useState(false);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchTerm.trim()) {
       setResult(undefined);
       return;
     }
-    const found = coffeeDatabase.find(c => c.lote.toLowerCase() === searchTerm.toLowerCase());
-    setResult(found || null);
+    
+    setLoading(true);
+    setResult(undefined);
+    
+    try {
+      // Query the database directly matching the Lote Code ignoring case
+      const { data, error } = await supabase
+        .from('coffee_lots')
+        .select('*')
+        .ilike('lote_code', searchTerm.trim())
+        .maybeSingle();
+        
+      if (error || !data) {
+        setResult(null);
+      } else {
+        setResult(data as CoffeeLot);
+      }
+    } catch (err) {
+      console.error("Error fetching lot:", err);
+      setResult(null);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,21 +70,23 @@ export default function CoffeeDatabase() {
               className="lot-input"
             />
           </div>
-          <button type="submit" className="btn-primary search-btn">Buscar Lote</button>
+          <button type="submit" className="btn-primary search-btn" disabled={loading}>
+            {loading ? 'Buscando...' : 'Buscar Lote'}
+          </button>
         </form>
       </div>
 
       <div className="db-results-container">
-        {result === null && (
+        {result === null && !loading && (
           <div className="no-result glass-panel reveal-up active">
-            <p className="clinic-text">No pudimos encontrar un lote con el código <strong>{searchTerm}</strong>. Por favor, verifica el número en tu empaque.</p>
+            <p className="clinic-text">No pudimos encontrar un lote con el código <strong>{searchTerm}</strong>. Por favor, verifica el número en tu empaque o asegúrate de haberlo escrito correctamente.</p>
           </div>
         )}
 
-        {result && (
+        {result && !loading && (
           <div className="result-card reveal-up active">
             <div className="result-card-header">
-              <h3 className="luxury-heading" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--text-primary)' }}>Lote {result.lote}</h3>
+              <h3 className="luxury-heading" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--text-primary)' }}>Lote {result.lote_code}</h3>
               <div className="score-badge">
                 <span className="score-number">{result.puntos}</span>
                 <span className="score-text">SCA Score</span>
