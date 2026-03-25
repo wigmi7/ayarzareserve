@@ -1,10 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Vercel no sube el archivo .env por seguridad, así que las insertamos estáticamente.
+// Al usar RLS (Row Level Security) en Supabase, es seguro tener el 'anon key' público aquí.
+const supabaseUrl = 'https://drzreadpobejkxnqtutc.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyenJlYWRwb2Jlamt4bnF0dXRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MTE5MjIsImV4cCI6MjA4OTk4NzkyMn0.Zcs1s6-bB3h0Dtp7sPoSKL-dQ950aS-o5PrMwOnIldI';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Faltan las variables de entorno de Supabase. Asegúrate de configurar .env.local');
-}
-
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
