@@ -17,13 +17,15 @@ export default function Footer() {
             <li><a href="/productores">Productores</a></li>
             <li><a href="/suscripcion">Suscripción</a></li>
             <li><a href="/faq">FAQ</a></li>
+            <li><a href="/login" style={{ color: 'var(--accent-gold)' }}>Acceso Miembros</a></li>
+            <li><a href="/admin" style={{ color: 'var(--text-secondary)' }}>Portal Admin</a></li>
           </ul>
         </div>
 
         <div className="footer-contact">
           <h4 className="clinic-text">Contacto</h4>
           <ul>
-            <li><a href="mailto:hola@ayarza.com">hola@ayarza.com</a></li>
+            <li><a href="mailto:hola@ayarzareserve.com">hola@ayarzareserve.com</a></li>
             <li><a href="https://wa.me/1234567890" target="_blank" rel="noreferrer">WhatsApp</a></li>
             <li>Instagram</li>
           </ul>

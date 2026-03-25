@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 export default function Hero() {
@@ -20,8 +21,8 @@ export default function Hero() {
         </p>
         
         <div className="hero-ctas reveal-up active" style={{ transitionDelay: '0.4s' }}>
-          <button className="btn-primary">Unirme a la suscripción</button>
-          <button className="btn-secondary">Ver cómo funciona</button>
+          <Link to="/suscripcion" className="btn-primary" style={{ textDecoration: 'none' }}>Unirme a la suscripción</Link>
+          <Link to="/impacto" className="btn-secondary" style={{ textDecoration: 'none' }}>Descubrir nuestra historia</Link>
         </div>
       </div>
     </section>

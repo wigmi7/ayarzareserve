@@ -18,7 +18,7 @@ export default function StorySection() {
           </div>
           
           <div className="story-image-block cinematic-zoom reveal-up active" style={{ animationDelay: '0.2s' }}>
-            <img src="https://images.unsplash.com/photo-1510250661993-4a11be071efc?auto=format&fit=crop&q=80&w=1200" alt="Laguna de Ayarza" />
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=1200" alt="Vista del Volcán y Laguna de Ayarza" />
           </div>
 
           <div className="story-image-block cinematic-zoom reveal-up active" style={{ animationDelay: '0.3s' }}>
