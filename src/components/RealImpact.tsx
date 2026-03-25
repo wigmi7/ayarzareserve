@@ -29,7 +29,7 @@ export default function RealImpact() {
         </div>
 
         <div className="impact-testimonial reveal-up active" style={{ transitionDelay: '0.2s' }}>
-          <img className="impact-image" src="https://images.unsplash.com/photo-1606318313647-137d1f3b4d3c?auto=format&fit=crop&q=80&w=800" alt="Productor de café en Guatemala" />
+          <img className="impact-image" src="/don_carlos.png" alt="Productor de café en Guatemala" />
           <div className="impact-quote-box glass-panel">
             <p className="impact-quote">"Gracias a la venta directa, ahora puedo enviar a mis hijos a una mejor escuela y reinvertir en mi cafetal. El volcán nos da la tierra, pero ustedes nos dan el futuro."</p>
             <span className="impact-author">— Don Carlos, Productor de Ayarza</span>
