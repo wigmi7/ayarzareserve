@@ -18,7 +18,7 @@ export default function StorySection() {
           </div>
           
           <div className="story-image-block cinematic-zoom reveal-up active" style={{ animationDelay: '0.2s' }}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Lake_Atitlan_Guatemala.jpg/1280px-Lake_Atitlan_Guatemala.jpg" alt="Vista del Volcán y Laguna de Ayarza" />
+            <img src="/laguna_ayarza.png" alt="Majestuosa Laguna de Ayarza y plantaciones de café en Guatemala" />
           </div>
 
           <div className="story-image-block cinematic-zoom reveal-up active" style={{ animationDelay: '0.3s' }}>
